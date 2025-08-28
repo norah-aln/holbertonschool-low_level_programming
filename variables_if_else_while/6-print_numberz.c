@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 /**
- * main - Entry point
+ * main - Prints single digit numbers using putchar
  *
  * Return: Always 0 (Success)
  */
@@ -14,8 +14,8 @@ int main(void)
 		putchar(num + '0');
 		num++;
 	}
-	
+
 	putchar('\n');
-	
+
 	return (0);
 }
