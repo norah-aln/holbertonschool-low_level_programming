@@ -2,6 +2,15 @@
 
 This project contains C programs that demonstrate the use of functions and nested loops.
 
+## Learning Objectives
+- What are nested loops and how to use them
+- What is a function and how do you use functions
+- What is the difference between a declaration and a definition of a function
+- What is a prototype
+- Scope of variables
+- What are the gcc flags -Wall -Werror -pedantic -Wextra -std=gnu89
+- What are header files and how to to use them with #include
+
 ## Tasks
 
 0. **0-putchar.c** - Program that prints _putchar
@@ -17,9 +26,5 @@ This project contains C programs that demonstrate the use of functions and neste
 10. **10-add.c** - Function that adds two integers
 11. **11-print_to_98.c** - Function that prints numbers from n to 98
 
-## Header File
-- **main.h** - Contains all function prototypes
-
-## Compilation
 ## Author
 norah-aln
