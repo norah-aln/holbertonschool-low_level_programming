@@ -22,11 +22,20 @@ int _atoi(char *s)
 			sign *= -1;
 		else if (s[i] == '+')
 		{
-			/* Do nothing, keep current sign */
+			/* Keep current sign */
 		}
 		else if (s[i] >= '0' && s[i] <= '9')
 		{
 			started = 1;
+			/* Check for overflow before multiplication */
+			if (result > (2147483647 / 10) ||
+				(result == 214748364 && (s[i] - '0') > 7))
+			{
+				if (sign == 1)
+					return (2147483647);
+				else
+					return (-2147483648);
+			}
 			result = result * 10 + (s[i] - '0');
 		}
 		else if (started)
