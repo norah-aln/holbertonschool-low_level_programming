@@ -1,22 +1,22 @@
-# Pointers, Arrays and Strings
+# C - Pointers, arrays and strings
 
-This project covers:
-- What are pointers and how to use them
-- What are arrays and how to use them  
-- What are the differences between pointers and arrays
-- How to use strings and how to manipulate them
-- Scope of variables
+This project contains C programs that demonstrate the use of pointers, arrays, and string manipulation functions.
 
-## Files:
-- 0-reset_to_98.c: Updates value of pointer to 98
-- 1-swap.c: Swaps values of two integers
-- 2-strlen.c: Returns length of a string
-- 3-puts.c: Prints a string followed by new line
-- 4-print_rev.c: Prints string in reverse
-- 5-rev_string.c: Reverses a string
-- 6-puts2.c: Prints every other character of string
-- 7-puts_half.c: Prints second half of string
-- 8-print_array.c: Prints n elements of an array
-- 9-strcpy.c: Copies string pointed by src to dest
-- 100-atoi.c: Converts string to integer
-- main.h: Header file with function prototypes
+## Learning Objectives
+- What are pointers to pointers and how to use them
+- What are multidimensional arrays and how to use them
+- What are the most common C standard library functions to manipulate strings
+
+## Tasks
+
+0. **0-memset.c** - Function that fills memory with a constant byte
+1. **1-memcpy.c** - Function that copies memory area
+2. **2-strchr.c** - Function that locates a character in a string
+3. **3-strspn.c** - Function that gets the length of a prefix substring
+4. **4-strpbrk.c** - Function that searches a string for any of a set of bytes
+5. **5-strstr.c** - Function that locates a substring
+6. **7-print_chessboard.c** - Function that prints the chessboard
+7. **8-print_diagsums.c** - Function that prints the sum of diagonals of a square matrix
+
+## Author
+norah-aln
