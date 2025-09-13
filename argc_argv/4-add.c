@@ -9,7 +9,7 @@
 int is_number(char *str)
 {
 	int i;
-	
+
 	for (i = 0; str[i] != '\0'; i++)
 	{
 		if (str[i] < '0' || str[i] > '9')
@@ -28,13 +28,13 @@ int is_number(char *str)
 int main(int argc, char *argv[])
 {
 	int i, sum = 0;
-	
+
 	if (argc == 1)
 	{
 		printf("0\n");
 		return (0);
 	}
-	
+
 	for (i = 1; i < argc; i++)
 	{
 		if (!is_number(argv[i]))
@@ -44,7 +44,7 @@ int main(int argc, char *argv[])
 		}
 		sum += atoi(argv[i]);
 	}
-	
+
 	printf("%d\n", sum);
 	return (0);
 }
