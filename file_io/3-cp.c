@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 void close_file(int fd);
-void error_file(int error_code, char *filename, int fd);
+void error_file(int error_code, char *filename, int fd1, int fd2);
 
 /**
  * main - copies the content of a file to another file
@@ -24,23 +24,21 @@ int main(int argc, char *argv[])
 
 	fd_from = open(argv[1], O_RDONLY);
 	if (fd_from == -1)
-		error_file(98, argv[1], -1);
+		error_file(98, argv[1], -1, -1);
 
 	fd_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	if (fd_to == -1)
-		error_file(99, argv[2], fd_from);
+		error_file(99, argv[2], fd_from, -1);
 
 	while ((bytes_read = read(fd_from, buffer, 1024)) > 0)
 	{
 		bytes_written = write(fd_to, buffer, bytes_read);
 		if (bytes_written == -1 || bytes_written != bytes_read)
-		{
-			error_file(99, argv[2], fd_from);
-		}
+			error_file(99, argv[2], fd_from, fd_to);
 	}
 
 	if (bytes_read == -1)
-		error_file(98, argv[1], fd_from);
+		error_file(98, argv[1], fd_from, fd_to);
 
 	close_file(fd_from);
 	close_file(fd_to);
@@ -68,17 +66,20 @@ void close_file(int fd)
  * error_file - handles file errors
  * @error_code: error code to exit with
  * @filename: name of the file
- * @fd: file descriptor to close if needed
+ * @fd1: first file descriptor to close if needed
+ * @fd2: second file descriptor to close if needed
  */
-void error_file(int error_code, char *filename, int fd)
+void error_file(int error_code, char *filename, int fd1, int fd2)
 {
 	if (error_code == 98)
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", filename);
 	else if (error_code == 99)
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", filename);
 
-	if (fd != -1)
-		close_file(fd);
+	if (fd1 != -1)
+		close_file(fd1);
+	if (fd2 != -1)
+		close_file(fd2);
 
 	exit(error_code);
 }
