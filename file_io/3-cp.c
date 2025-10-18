@@ -30,15 +30,18 @@ int main(int argc, char *argv[])
 	if (fd_to == -1)
 		error_file(99, argv[2], fd_from, -1);
 
-	while ((bytes_read = read(fd_from, buffer, 1024)) > 0)
+	while (1)
 	{
+		bytes_read = read(fd_from, buffer, 1024);
+		if (bytes_read == -1)
+			error_file(98, argv[1], fd_from, fd_to);
+		if (bytes_read == 0)
+			break;
+
 		bytes_written = write(fd_to, buffer, bytes_read);
 		if (bytes_written == -1 || bytes_written != bytes_read)
 			error_file(99, argv[2], fd_from, fd_to);
 	}
-
-	if (bytes_read == -1)
-		error_file(98, argv[1], fd_from, fd_to);
 
 	close_file(fd_from);
 	close_file(fd_to);
